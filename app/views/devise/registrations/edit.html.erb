@@ -1,0 +1,112 @@
+<%= render 'partial/calender' %>
+  <div id="datepicker"></div>
+<script>
+$(function() {
+    // インライン表示
+    $("#datepicker").datepicker({
+        onSelect: function(dateText, inst) {
+            $("#user_memo1").val(dateText);
+
+        }
+    });
+});
+</script>
+
+<script>
+$(function() {
+    // インライン表示
+    $("#demo2").datepicker({
+        onSelect: function(dateText, inst) {
+            $("#user_memo2").val(dateText);
+
+        }
+    });
+});
+</script>
+
+<script>
+$(function() {
+    // インライン表示
+    $("#user_memo3").datepicker({
+        onSelect: function(dateText, inst) {
+            $("#user_memo3").val(dateText);
+
+        }
+    });
+});
+</script>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="field">
+    <%= f.label :"飲み会第一希望日:19時30分スタート" %>
+    <%= f.text_field :memo1 , class: 'form-control', placeholder: " カレンダーをクリックしてください",required: 'true'%>
+  </div>
+
+
+  <div class="field" >
+    <%= f.label :"飲み会その他希望日:19時30分スタート" %>
+    <%= f.text_field :memo2 , class: 'form-control', placeholder: " ここをクリックしてください",required: 'true', id: 'demo2'%>
+  </div>
+  <div class="field">
+    <%= f.label :"飲み会その他希望日:19時30分スタート" %>
+    <%= f.text_field :memo3 , class: 'form-control', placeholder: " ここをクリックしてください",required: 'true'%>
+  </div>
+  <div class="field">
+    <%= f.label :名前 %>
+    <%= f.text_field :name, class: 'form-control' ,placeholder: "お店の予約に使う名前です。(例:ドドリア)",required: 'true'%>   
+  </div>
+
+  <div class="field">
+    <%= f.label :mail ,id:"maillabel"%>
+    <%= f.text_field :email,{placeholder: "メールアドレスを記述してください。こちらに日程調整メールが飛びます。",required: 'true', autofocus: 'true', class: 'form-control',id:"maillabel" } %>
+  </div>
+    <br>
+   <div>
+    <%= f.label :性別  %>
+    <%= f.select :sex, {"選択してください" => "なし","男性" => "男性", "女性" => "女性"},class: 'sentaku' ,required: 'true', class: "seleage" %>
+  </div>
+  <br>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btnnew">送信</button>
+        </div>
+    </div>
+
+  <div class="field">
+    <%= f.label :会社名（任意） %>
+    <%= f.text_field :company ,class: 'form-control' ,placeholder: "任意：現職の会社名を記入。"%>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :年齢（任意） %>
+    <%= f.number_field :age ,class: 'form-control'   ,placeholder: "任意：年齢を半角数字で" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :要望（任意） %>
+    <%= f.text_area :task ,class: 'form-control',placeholder: "要望を記入ください。例：同じ業界とのセッティング禁止など"%>
+  </div>
+
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+ 
+
+
+     <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btnnew">送信</button>
+        </div>
+    </div>
+<% end %>
+
+
+
+<!-- <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete  ,class: "btn btnnew1"  %> -->
+
+<%= link_to "Brandack", :back %>

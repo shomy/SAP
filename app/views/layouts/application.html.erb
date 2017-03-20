@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ApTenkin</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Display inline</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/jquery.ui.datepicker-ja.js"></script>
+  </head>
+
+  <body>
+  <h1><div class="sample-box-3 ">
+  サッポロの転勤族、飲み仲間探し
+</div></h1>
+<%= render 'partial/navbar' %>
+<% unless flash.empty? %>
+  <script type="text/javascript">
+    <% flash.each do |f| %>
+      <% type = f[0].to_s.gsub('alert','error').gsub('notice','info') %>
+      toastr['<%= type %>']('<%= f[1] %>');
+    <% end %>
+  </script>
+<% end %>
+
+  <div class="container">
+    <div class="row">
+       <div class="col-md-3 col-md-9"></div>
+    </div>
+    <div class="row">
+       <div class="col-md-10 col-md-offset-1">
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <h4>＜コンセプト＞</h4>
+            <div>
+              札幌のビジネスパーソンに出会いを提供する
+            </div>
+            <small> ※出会い系の類ではありません</small><br>
+            <h4>＜手順＞</h4>
+              <div>(1)メールアドレス、名前、飲み会希望日など必要項目を記入</div><br>
+              <div>(2)待ちます</div>
+            <h4>＜マッチング完了＞</h4>
+                <div>
+                  飲み会希望日をもとに、マッチングが行われ,
+                </div>
+                <div>
+                  飲み会開始時間と飲み会が開かれる店舗名と店舗住所がメールで届きます。
+                </div><br>
+                <div>
+                  連絡手段：メール
+                </div><br>
+                <div>
+                  費用:5000円　(お店では3000円分のコース料理が出ます)
+                </div><br>
+                <div>
+                  日時: 19:30スタート
+                </div><br>
+                <div>
+                  店舗: サッポロ転勤族の集い提携店舗
+                </div>
+        </div>
+        <div class="col-md-8" >
+          <%= yield %>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+  </div>
+
+  <br>
+
+<br><br>
+<footer><br>
+  <address>
+    このサイトに関するお問い合わせ先：
+    <a href="mailto:sapporosamuize@gmail.com">サッポロ転勤族の集い編集</a>
+  </address>
+<small>&copy; copyright 2017 sapporoTenkin </small>
+</footer>
+  </body>
+</html>
+

@@ -1,0 +1,76 @@
+<%= render 'partial/calender' %>
+  <div id="datepicker"></div>
+<script>
+$(function() {
+    // インライン表示
+    $("#datepicker").datepicker({
+        onSelect: function(dateText, inst) {
+            $("#user_memo1").val(dateText);
+
+        }
+    });
+});
+
+</script>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+    <div class="field">
+    <%= f.label :"飲み会第一希望日:1930スタート" %>
+    <%= f.text_field :memo1 , class: 'form-control', placeholder: " カレンダーをクリックしてください",required: 'true'%>
+  </div>
+  <div class="field">
+    <%= f.label :名前 %>
+    <%= f.text_field :name, class: 'form-control' ,placeholder: "お店の予約に使う名前です。(例:ドドリア)",required: 'true'%>   
+  </div>
+
+  <div class="field">
+    <%= f.label :mail ,id:"maillabel"%>
+    <%= f.text_field :email,{placeholder: "メールアドレスを記述してください。こちらに日程調整メールが飛びます。",required: 'true', autofocus: 'true', class: 'form-control',id:"maillabel" } %>
+  </div>
+    <br>
+   <div>
+    <%= f.label :性別  %>
+    <%= f.select :sex, {"選択してください" => "なし","男性" => "男性", "女性" => "女性"},class: 'sentaku' ,required: 'true'%>
+  </div>
+  <br>
+    <div >
+    <%= f.label :パスワード %>
+    <%= f.password_field :password, autocomplete: "off" ,class: 'form-control',placeholder: "パスワード"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード確認 %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" ,class: 'form-control',placeholder: "パスワード確認"%>
+  </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btnnew">送信</button>
+        </div>
+    </div>
+
+  <div class="field">
+    <%= f.label :会社名（任意） %>
+    <%= f.text_field :company ,class: 'form-control' ,placeholder: "任意：現職の会社名を記入。"%>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :年齢（任意） %>
+    <%= f.number_field :age ,class: 'form-control'   ,placeholder: "任意：年齢を半角数字で" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :要望（任意） %>
+    <%= f.text_area :task ,class: 'form-control',placeholder: "要望を記入ください。例：同じ業界とのセッティング禁止など"%>
+  </div>
+
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btnnew">送信</button>
+        </div>
+    </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

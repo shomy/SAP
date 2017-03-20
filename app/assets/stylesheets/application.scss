@@ -1,0 +1,65 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "toastr";
+@import "jquery-ui";
+
+body{
+     background: white;
+     font: 16px/20px "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",'メイリオ',Meiryo,Helvetica,Arial,Sans-Serif;
+     color: #666;
+}
+
+.btnnew {
+   font-weight: bold;
+   padding: 5px;
+   border-style: none;
+   color: #fff;
+   border-radius: 5px;
+   background-color: #48C2C2;
+   width:180px;
+   height: 30px;
+} 
+.btnnew:hover {
+color: #39f;
+}
+.btnnew1 {
+   font-weight: bold;
+   padding: 5px;
+   border-style: none;
+   color: #fff;
+   border-radius: 5px;
+   background-color: #48C2C2;
+   width:120px;
+   height: 30px;
+} 
+.sample-box-3 {
+    border: 4px double #ddd;
+    margin:  0;
+    padding: 16px;
+    background-color: #48C2C2;
+    color:#fff;
+    text-align: center;
+}
+.form-control{
+  width:600px;
+  margin:5px;
+}
+
+.sentaku{
+  height:220px;
+}
+footer {
+
+    bottom: 0;
+    width: 100%;
+    background-color:#48C2C2;
+    color:white;
+    padding:5px;
+    margin-top: 10px;
+   }
+   a {
+    color:white;
+   }
+#user_sex{
+  height: 30px; 
+}
